@@ -51,6 +51,9 @@ class Finder:
 
         # 1) Apply retriever(with optional filters) to get fast candidate documents
         documents = self.retriever.retrieve(question, filters=filters, top_k=top_k_retriever, index=index)
+        
+        for d in documents:
+            print(d.text)
 
         if len(documents) == 0:
             logger.info("Retriever did not return any documents. Skipping reader ...")
