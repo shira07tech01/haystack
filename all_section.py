@@ -6,7 +6,6 @@ from haystack.preprocessor.utils import convert_files_to_dicts, fetch_archive_fr
 from haystack.reader.farm import FARMReader
 from haystack.reader.transformers import TransformersReader
 from haystack.tokenizer import tokenizer 
-from haystack.tokenizer.mecab_wakati import get_wakati_text
 from haystack.utils import print_answers 
 from haystack.document_store.memory import InMemoryDocumentStore
 from haystack.retriever.sparse import TfidfRetriever

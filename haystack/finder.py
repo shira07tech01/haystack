@@ -4,9 +4,6 @@ from copy import deepcopy
 from statistics import mean
 from typing import Optional, Dict, Any, List
 from collections import defaultdict
-
-from haystack.tokenizer.mecab_wakati import get_wakati_text
-from haystack.tokenizer.tokenizer import *
 from haystack.reader.base import BaseReader
 from haystack.retriever.base import BaseRetriever
 from haystack import MultiLabel
