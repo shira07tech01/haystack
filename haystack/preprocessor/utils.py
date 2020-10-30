@@ -8,7 +8,7 @@ from typing import Callable, Dict, List, Optional, Tuple, Union
 import json
 
 from farm.data_handler.utils import http_get
-
+from haystack.tokenizer import tokenizer 
 from haystack.file_converter.base import BaseConverter
 from haystack.file_converter.docx import DocxToTextConverter
 from haystack.file_converter.pdf import PDFToTextConverter
@@ -130,7 +130,9 @@ def convert_files_to_dicts(dir_path: str, clean_func: Optional[Callable] = None,
                     documents.append({"text": para, "meta": {"name": path.name}})
             else:
                 documents.append({"text": text, "meta": {"name": path.name}})
-
+    tokenization = tokenizer.FullTokenizer("./model_sentence_piece/vocab.txt",model_file="./model_sentence_piece/wiki-ja.model",do_lower_case=True)
+    for document in documents:
+        document["text"] = tokenization.space_separation(document["text"])
     return documents
 
 
